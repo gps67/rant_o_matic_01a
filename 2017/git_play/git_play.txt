@@ -33,3 +33,8 @@ got dialogs
  pass: ...
 
 
+second attempt
+needed password again
+maybe stop at staging ?
+push daily ?
+
