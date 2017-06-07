@@ -1,0 +1,35 @@
+
+cd gps67
+git clone https://github.com/gps67/rant_o_matic_01a.git
+cd r^I
+git gui
+# hmmm
+# edited in mc outside og git gui
+tools/Rescan
+edited comment
+commit
+
+# got popup text label with uncopyable error message
+# does noone else notice these things ?
+
+!*!
+Unable to obtain your identy
+run
+
+	git config --global user.email "gps67@users.noreply.github.com"
+
+	git config --global user.name "Graham"
+
+so looked on account to obtain above fakes
+should have used different tracers
+then
+
+ clicked on stage
+ clicked on commit
+ clicked on Push
+
+got dialogs
+ user: gps67
+ pass: ...
+
+
