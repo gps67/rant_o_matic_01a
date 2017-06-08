@@ -33,16 +33,40 @@ One half gone, the other ... well mobile warmth effect kicks in
 The first and last blue points are:
 """
 
-T1 = 1979.503
-V1 = 25.387
+# T1 = 1979.503
+# V1 = 25.387
+# T2 = 2016.914
+# V2 = 12.8125
 
 # edit the following over the next 2.5 years, it will extrpolate less
 # stop when it truncates under-extra-polates
 
-T2 = 2016.829
-V2 = 12.9045
-T2 = 2016.914
-V2 = 12.8125
+filename='tmp/tmp_plot_data_avg2.data.tmp'
+
+fd = open( filename, "r" )
+lines = fd.readlines()
+line_first = lines[0]
+line_last = lines[-1]
+lines = None
+fd.close()
+#
+# ok if not enough line that should have failed
+#
+if 0:
+	print line_first
+	print line_last
+(T1, V1) = line_first.split()
+(T2, V2) = line_last.split()
+
+T1 = float( T1 )
+T2 = float( T2 )
+
+V1 = float( V1 )
+V2 = float( V2 )
+
+if 0:
+	print "T2 - T1 == ", T2 - T1
+	print "V2 - V1 == ", V2 - V1
 
 YEARS37 = T2 - T1
 MELT37 = V2 - V1 # a negative- number means melt, a positive+ means more ice
@@ -64,7 +88,7 @@ RATIO1  = ( -MELT1 / V0 ) * 100.0
 def P( name, value, desc ):
 	print( '%-9s %9.4f  %s' % (name, value, desc ))
 print
-print( '# you must edit the end points into this script')
+print( '# values plucked from ' + filename )
 print
 
 P( "T2", T2, "Middle of recent year" )
@@ -80,8 +104,8 @@ P( "MELT37", MELT37, "Vol melt over 37ish years (1000 km3)" )
 P( "MELT1", MELT1, "Vol melt per year (1000 km3 / year)" )
 # P( "RATE37", RATE37, "RATE37 -loss/left melt over 37 years" )
 P( "RATIO37", RATIO37, "percent of what it was %4.1f years ago" % YEARS37 )
-P( "RATIO40", RATIO40, "percent of what it was 40 years ago" )
 P( "RATIO1", RATIO1, "percent MELT EACH YEAR over 37 years" )
+P( "RATIO40", RATIO40, "percent of what it was 40 years ago" )
 
 
 # OUTPUT
@@ -100,6 +124,6 @@ YEARS37     37.4110  Years between mid year averages (37ish)
 MELT37     -12.5745  Vol melt over 37ish years (1000 km3)
 MELT1       -0.3361  Vol melt per year (1000 km3 / year)
 RATIO37     50.4687  percent of what it was 37.4 years ago
-RATIO40     48.7961  percent of what it was 40 years ago
 RATIO1       1.2801  percent MELT EACH YEAR over 37 years
+RATIO40     48.7961  percent of what it was 40 years ago
 """
