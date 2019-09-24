@@ -1,0 +1,16 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 74.114.88.224...
+* TCP_NODELAY set
+* Connected to psc.apl.uw.edu (74.114.88.224) port 80 (#0)
+> GET /research/projects/arctic-sea-ice-volume-anomaly/data/index.html HTTP/1.1
+> Host: psc.apl.uw.edu
+> User-Agent: curl/7.58.0
+> Accept: */*
+> If-Modified-Since: Mon, 11 Feb 2019 11:52:50 GMT
+> 
+* The requested URL returned error: 404 Not Found
+* stopped the pause stream!
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+* Closing connection 0
+curl: (22) The requested URL returned error: 404 Not Found

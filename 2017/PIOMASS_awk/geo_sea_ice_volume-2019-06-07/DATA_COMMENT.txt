@@ -1,0 +1,123 @@
+
+	OK your plot worked and you have the graph.
+
+	The X-axis is year.
+
+	  The data is converted to fractions of a year.
+	  There is a Tcl script to do the opposite,
+	  but remember that 0.01 of a year is 1/100 not 1/365
+
+	  The data starts in 1979, with the satellite.
+	  We can only guess that there is more loss before then
+	  My guess is a gradual incline down from 22/30/38 or higher
+
+	  I plot a blank bit to the left and to the right,
+	  so that you can extrapolate yourself.
+
+	  My guess is a day of no ice before 2030,
+	  and no day of ice after 2070
+
+	The Y-axis is in units of 1000 km3
+
+	The Y=zero line is visible.
+	  You may be used to dramatic looking graphs
+	  which show some variable changing (dramatically)
+	  from 123.4 to 120.4, without any zoom out context.
+
+	The zero line is absolute.
+	  You cant measure negative ice (warm water)
+	  as the annual cycle dips below the zero horizon,
+	  there will be strange clipping effects,
+	  and a misleading distortion.
+
+	The green line is like a sin wave,
+	  tracking the daily ice volume,
+	  as computed by the PIOMAS project (and others).
+	  It is the raw input data, at the graphs pixel res.
+
+	Above the avg365 line, and below, are the extents
+	  of the Arctic winter and summer. +8 and -8 (ish)
+	  This seems to have remained consistent.
+	  It represents - it is - the amount of ice, each year,
+	  which is processing heat. Absorbing heat by melting,
+	  releasing heat by freezing.
+
+	The 365 day average looks stable,
+	  I think it is a good indicator of what is going on.
+	  Look for the file tmp/tmp_plot_data_avg2.data.tmp
+
+ 1979.503 25.387
+ ... one line per day ...
+ 2017.166 12.6302
+
+	  That is telling you that over 4 decades
+	  the ice has dropped from 25.4 to 12.6 ie a half
+	  Find those points on the visual graph,
+	  and decide if they are fairly representative.
+
+	The gawk script detects the annual min and max,
+	and plots them with yellow and purple lines.
+	A lot of graphs focus on the MIN hitting zero
+
+	Arctic is one place only.
+	  It does not include mountain tops.
+	  nor Greenland,
+	  nor Ant-Arctica
+
+	Arctic is a sea surrounded by land,
+	  or openings or channels.
+	  Ice might be blown against shore channels,
+	  Storms might scatter or gather ice
+	  you need to look at map visualisations
+	  The pole is approximately the centre of the ice area.
+
+	Away from pole is already zero.
+	  The general obsession with graph lines hitting zero
+	  may distract from the fact that away from the pole
+	  the radius of the remaining ice is retreating
+	  and there is already many days of great distance
+	  of water from ice (ie it is not 1 day 5 meters away)
+
+	Shallow sea shelf - and methane release
+	  Ocean floor permafrost, holds a lot of methane
+	  Maybe the wind is blowing ice to that shore
+	  Maybe the water is absorbing escaping methane
+	  Maybe the problem is still a risk.
+	  (other studies say there is not much released to atmos)
+	  Methane is over 101x as strong as CO2
+	  but it half oxidises after a decade
+	  leaving the 1x CO2 which remains for 1000 years
+	  Many report it as 27x but this is wrong,
+	  as that depends on the future oxidation
+	  and ignores what it is doing this year, now
+
+
+	Melting ice = 80'C
+
+	 334 joules per gram is latent heat of fusion of water
+	 4.184 joules per gram is specific heat if water
+	 water = water - ignoring salt
+
+	 334 / 4.184 = 79.83
+
+	 so melting ice absorbs 80'C of water heat
+
+	 So when the sunshine gives 334 joules, it melts 1g of ice
+	 the same sunshine without ice would raise 1g by 80'C
+	 or raise 10g by 8'C
+	 This is why global warming, is heating not warming
+
+	 but what happens when the ice is not there to absorb the heat?
+	 the water gets warmer
+	 the air gets warmer
+	 the deeper water gets warmer
+	 the surrounding ice melts faster
+	 more energy is radiated as IR back to space (phew)
+	 most moves from over there to over here (aaghh)
+
+	 Away from any remaining ice, the negative ice is warm water
+	 That will hold enough heat to stop the ice forming
+	 So it is still processing some summer heat
+	 but the same trend line will move into more -ve ice
+	 but with more added dissipation
+	 so the rest of the planet will experience extra heat in summer

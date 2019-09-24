@@ -1,0 +1,212 @@
+2019-09-03 Sep Tue 19:13 PIOMAS_fetch.DIAG.txt
+
+	PIOMAS_fetch.DIAG {
+	}
+
+	PIOMAS_fetch.DIAG { TEXT }
+	PIOMAS_fetch.DIAG { entire file }
+	PIOMAS_fetch.DIAG { text_from_DB }
+	PIOMAS_fetch.DIAG { text_for_VIEW }
+	PIOMAS_fetch.DIAG { MIME }
+	PIOMAS_fetch.DIAG { MIME_SCRIPT_EXPR_TEXT }
+	PIOMAS_fetch.DIAG { EXPR }
+	PIOMAS_fetch.DIAG { EXPR_SCRIPT_EXPR_TEXT }
+
+
+		DIAG {
+			EXPR 
+		}
+
+		EXPR { -- SHEET --
+// AUTO BLANKLINE
+			DIAG
+		}
+
+		DIAG {
+		 EXPR {
+			EXPR = EXPR_SCRIPT_EXPR_TEXT } ## DATA + CODE + DESC
+		 } // expr
+		}
+
+## MATCH EXPR { EXPR_SCRIPT_EXPR_TEXT } ## DATA + CODE + DESC
+## MATCH 
+## MATCH EXPR { EXPR_SCRIPT_EXPR_TEXT } ## DATA + CODE + DESC
+
+MATCH
+EXPR
+{ EXPR_SCRIPT_EXPR_TEXT }
+
+## DATA + CODE + DESC
+	## DATA + CODE + DESC
+	## DATA
+	## CODE
+	## DESC
+	## " %s + %s + %s " 
+	## " %s + %s + %s " ## MATCH ## 
+	## " %s + %s + %s " ## MATCH ## DRIFT %s is ITEM.SPEC.NAME.callable
+
+## DATA + CODE + DESC
+
+	## DATA + CODE + DESC
+	##
+	## DATA
+	## CODE
+	## DESC
+	##
+
+		CODE_POINT_DATA
+		##
+			DATA = PKT_VAR "DATA"
+
+		CODE_POINT_DATA
+		##
+			DATA = PKT_VAR "DATA"
+
+	## [ FMT ] # POOL varname of STR0 // CMNT // CODE_POINT_DATA
+
+	## " %s + %s + %s " 
+	## " %s + %s + %s " ## MATCH ## 
+	## " %s + %s + %s " ## MATCH ## DRIFT %s is ITEM.SPEC.NAME.callable
+
+		CODE_POINT_DATA
+		##
+			DATA = STR0
+
+		CODE_POINT_DATA
+		##
+			STR0 = " %s + %s + %s "
+
+
+		LINK_BIND_STORE
+		##
+			BYTE_TYPE_EXPR VAR_NAME_EXPR
+			
+				BYTE_TYPE_EXPR
+				VAR_NAME_EXPR
+
+	## [ FMT ] # POOL varname of STR0 // CMNT // CODE_POINT_DATA
+
+
+
+## MATCH EXPR { EXPR_SCRIPT_EXPR_TEXT } ## DATA + CODE + DESC
+
+		DIAG {
+		 EXPR {
+			EXPR { EXPR_SCRIPT_EXPR_TEXT } ## DATA + CODE + DESC
+		 } // expr
+		}
+
+		EXPR.DIAG
+		{
+			PIOMAS_fetch.DIAG { EXPR_SCRIPT_EXPR_TEXT }
+			entire file 	// or text from DB
+		}
+
+	PIOMAS_fetch.DIAG { MIME_SCRIPT_EXPR_TEXT }
+
+	PIOMAS_fetch.DIAG
+	{
+		entire file 	// or text from DB
+	}
+	PIOMAS_fetch.DIAG {
+		entire file 	// or text from DB
+	}
+
+	PIOMAS_fetch.DIAG {
+		entire file 	// or text from DB
+				//	// TEXT //
+					// EXPR //
+					// MIME // SCRIPTED VFS MIME_TYPE
+				// this is how MIME + USAGE adds WRAP
+				// WRAP { entire file } added_flags  
+
+	}
+
+	DIAG suggestion {
+
+		DIAG ${CTXT_log} { // CMNT
+		 EXPR {
+			... your code here ...
+		 }
+		}
+
+		DIAG ${CTXT_log} { // CMNT
+		 EXPR {
+			... extra blank line in Layout ...
+			... your code here ...
+		 }
+		}
+
+	}
+
+	./PIOMAS_fetch 2>&1 | tee -a ${CTXT_log}
+
+##################################### PAUSED ############################
+
+ PIOMAS_fetch.DIAG
+ 
+ 	!! bash
+	./PIOMAS_fetch 2>&1
+
+Sun  4 Aug 18:28:58 BST 2019
+Tue  3 Sep 20:05:15 BST 2019
+Sun  4 Aug 18:28:58 BST 2019
+curl is /usr/bin/curl
+# URL # http://psc.apl.uw.edu/wordpress/wp-content/uploads/schweiger/ice_volume/PIOMAS.vol.daily.1979.2019.Current.v2.1.dat.gz
+
+-rw-rw-r-- 1 gps gps     0 Aug  4 18:28 PIOMAS_dated
+-rw-rw-r-- 1 gps gps 74475 Aug  4 18:28 PIOMAS.vol.daily.1979.2019.Current.v2.1.dat.gz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+				 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Could not resolve host: psc.apl.uw.edu
+* Closing connection 0
+curl: (6) Could not resolve host: psc.apl.uw.edu
+Maybe Downloaded
+Sun  4 Aug 18:28:58 BST 2019
+
+ 	!! bash
+	./PIOMAS_fetch 2>&1 | tee -a ./PIOMAS_fetch.log 
+
+		WRAP LOG_a_NOISE_LOG ./PIOMAS_fetch 2>&1 | tee -a ./PIOMAS_fetch.log 
+			WRAP 
+				PIOMAS_fetch
+
+			DENT 
+				DENT LEFT DENT
+			TEXT
+				DENT LEFT DENT
+				# no idea why so man DATES of unknown ORIGIN
+################################################################
+
+./PIOMAS_fetch
+Sun  4 Aug 18:28:58 BST 2019
+Tue  3 Sep 20:09:28 BST 2019
+Sun  4 Aug 18:28:58 BST 2019
+curl is /usr/bin/curl
+# URL # http://psc.apl.uw.edu/wordpress/wp-content/uploads/schweiger/ice_volume/PIOMAS.vol.daily.1979.2019.Current.v2.1.dat.gz
+
+< HTTP/1.1 304 Not Modified
+Sun  4 Aug 18:28:58 BST 2019
+
+################################################################
+
+Sun  4 Aug 18:28:58 BST 2019
+Tue  3 Sep 20:08:35 BST 2019
+Sun  4 Aug 18:28:58 BST 2019
+curl is /usr/bin/curl
+# URL # http://psc.apl.uw.edu/wordpress/wp-content/uploads/schweiger/ice_volume/PIOMAS.vol.daily.1979.2019.Current.v2.1.dat.gz
+
+-rw-rw-r-- 1 gps gps     0 Aug  4 18:28 PIOMAS_dated
+-rw-rw-r-- 1 gps gps 74475 Aug  4 18:28 PIOMAS.vol.daily.1979.2019.Current.v2.1.dat.gz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Could not resolve host: psc.apl.uw.edu
+* Closing connection 0
+curl: (6) Could not resolve host: psc.apl.uw.edu
+-rw-rw-r-- 1 gps gps     0 Aug  4 18:28 PIOMAS_dated
+-rw-rw-r-- 1 gps gps 74475 Aug  4 18:28 PIOMAS.vol.daily.1979.2019.Current.v2.1.dat.gz
+Maybe Downloaded
+Sun  4 Aug 18:28:58 BST 2019
+
+
+

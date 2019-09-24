@@ -1,0 +1,33 @@
+#!/bin/bash
+cat - ; exit
+
+#!/usr/bin/awk -f
+#!/usr/bin/env awk 
+
+function print_pair() {
+	printf( "%9f %9f \n", Y_mid, V_mid );
+}
+NR==1 {
+	Y_CURR = $1
+	V_CURR = $2
+	next
+	# taking average of 2 years as they go
+	# todo flush first and last asis
+	# tried that - it fails when step min max presumed
+}
+{
+	Y_PREV = Y_CURR
+	V_PREV = V_CURR
+	Y_CURR = $1
+	V_CURR = $2
+	Y_mid = (Y_PREV + Y_CURR) / 2.0
+	V_mid = (V_PREV + V_CURR) / 2.0
+	print_pair() 
+}
+END {
+	if( NR == 1 ) {
+		Y_mid = Y_CURR
+		V_mid = V_CURR
+		print_pair() 
+	}
+}

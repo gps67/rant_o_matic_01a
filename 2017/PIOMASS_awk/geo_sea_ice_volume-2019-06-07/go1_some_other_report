@@ -1,0 +1,16 @@
+
+# edit this - find the last number in the tmp/X file to compare latest
+
+cd tmp
+grep '\.249 ' tmp_plot_data_day.data.tmp \
+| tee STDIN.data \
+| ../gnuplot_in "Ending Mar"
+gm display STDIN.png
+
+exit
+
+cd tmp
+grep '\.162 ' tmp_plot_data_day.data.tmp \
+| tee STDIN.data \
+| ./gnuplot_in "Ending Feb"
+gm display STDIN.png

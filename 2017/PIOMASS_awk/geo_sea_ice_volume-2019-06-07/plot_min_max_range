@@ -1,0 +1,57 @@
+PATH=:$PATH
+t=.
+t=tmp
+data_min=$t/tmp_plot_data_min.data 
+data_max=$t/tmp_plot_data_max.data 
+
+gen_data_1() {
+	cat $data_min 
+	cat $data_max
+}
+
+gen_data_2() {
+	cat $data_min | awk_avg_2
+	cat $data_max | awk_avg_2
+}
+
+gen_data_4() {
+	cat $data_min | awk_avg_2 | awk_avg_2
+	cat $data_max | awk_avg_2 | awk_avg_2
+}
+
+gen_data_1 | sort \
+| awk '
+BEGIN {
+}
+NR==1 {
+	Y_CURR = $1
+	V_CURR = $2
+	next
+}
+{
+	Y_PREV = Y_CURR
+	V_PREV = V_CURR
+	Y_CURR = $1
+	V_CURR = $2
+	Y_mid = (Y_PREV + Y_CURR) / 2.0
+	V_abs = (V_PREV - V_CURR)
+	if( V_abs < 0.0 ) V_abs = 0.0 - V_abs  
+	printf( "%9f %9f \n", Y_mid, V_abs );
+	# # # # # # # # # printf( "%9f %9f \n", $1, $2 );
+}
+' \
+| awk_avg_2 \
+| awk_avg_2 \
+| tee /tmp/trk1 \
+| gnuplot ./gnuplot_in_range
+F1=STDIN.png
+F2=$HOME/YEAR/FTP_/sea_ice_vol_range.png
+cp -p $F1 $F2
+gm display $F2 &
+
+# ok the avg_2 gradually adds trailing nearby points
+# this is qnd
+# also 1 large peak makes 2 large differences
+# which are then self sustaining
+
+# could try cat ...min... | awk_avg_2

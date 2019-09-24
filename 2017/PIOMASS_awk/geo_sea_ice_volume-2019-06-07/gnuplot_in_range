@@ -1,0 +1,19 @@
+#! /usr/bin/env gnuplot
+
+set terminal png
+set output 'STDIN.png'
+set term png size 640, 480
+set xrange [1980:2070]
+set yrange [0:22]
+set title 'ANNUAL RANGE PIOMAS Arctic Sea Ice Volume min max range'
+set ylabel'+/- 1000 km3'
+set multiplot
+plot '/dev/fd/0' with lines title 'RANGE', \
+'range_guess' with lines title 'GUESS' 
+#plot '/dev/fd/0' with points title 'RANGE', \
+
+# you really cany have lines
+# but switching back to points requires non-smoothing of input
+# so as was
+
+

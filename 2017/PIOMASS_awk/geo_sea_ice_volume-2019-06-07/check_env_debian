@@ -1,0 +1,62 @@
+
+echo "
+	It does work, it may need gnuplot5 and awk or gawk
+	But it now works with gnuplot 4.6 patchlevel 6 on debian
+	Maybe I moved the dependency, or maybe it got patched ?
+
+	You may neet to edit #!/usr/bin/gawk -f
+	Because #!/usr/bin/env gawk -f
+	might have too many parameters
+	Ignore this script
+
+	Tcl is also used for an extra function,
+	where the date is converted to human readable
+	showing th latest date of data
+	and printing peaks found
+	so you dont need it, but any version should work
+"
+
+if type gnuplot 
+then
+	echo "It may need be version 5 for some multiline feature used"
+	echo "NOW OK with debian version 4.6 patchlevel 6 works OK"
+	gnuplot --version
+else
+	echo "It must be version 5 - debian uses 4.6 - so dont do this ..."
+	echo "now works with 4.6 patchlevel 6 - so ok"
+	ask_do sudo apt-get install gnuplot
+fi
+
+if type gawk
+then
+	gawk --version
+else
+	echo "It may need to be gawk, I dont know. Mine is"
+	if type awk
+	then
+		awk -W version
+		awk --version
+	else
+		ask_do sudo apt-get install gawk
+		ask_do sudo apt-get install awk
+	fi
+fi
+if type tclsh
+then
+	echo 'puts "tcl_version [set tcl_version]"' | tclsh
+
+else
+	ask_do sudo apt-get install wish
+	ask_do sudo apt-get install tclsh
+fi
+
+
+if type gm
+then
+	gm -version 2>&1 | sed 1q
+
+else
+	ask_do sudo apt-get install GraphicsMagick
+fi
+
+

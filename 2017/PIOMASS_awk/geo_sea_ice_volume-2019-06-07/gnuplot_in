@@ -1,0 +1,14 @@
+#! /usr/local/bin/gnuplot
+
+set terminal png
+set output 'STDIN.png'
+set term png size 1200, 900
+set xrange [1975:2020]
+set yrange [0:40]
+set title 'STDIN PIOMAS Arctic Sea Ice Volume Ending (MONTH)'
+set ylabel'1000 km3'
+set multiplot
+plot '/dev/fd/0' with points title 'stdin', \
+#plot '/dev/fd/0' with lines title 'stdin', \
+
+

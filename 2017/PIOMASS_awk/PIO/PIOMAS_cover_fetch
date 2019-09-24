@@ -1,0 +1,55 @@
+URL=http://psc.apl.uw.edu/wordpress/wp-content/uploads/schweiger/ice_volume/PIOMAS.vol.daily.1979.2018.Current.v2.1.dat.gz
+URL=http://psc.apl.uw.edu/wordpress/wp-content/uploads/schweiger/ice_volume/PIOMAS.vol.daily.1979.2019.Current.v2.1.dat.gz
+URL=http://psc.apl.uw.edu/research/projects/arctic-sea-ice-volume-anomaly/data/
+URL=http://psc.apl.uw.edu/research/projects/arctic-sea-ice-volume-anomaly/data/index.html
+
+# removed trailing /
+# replaced trailing /
+
+BASENAME=`basename $URL`
+BASENAME="${BASENAME:-index_html}"
+
+# DATED=$BASENAME
+DATED=PIOMAS_cover_dated
+DATED=`basename $0`
+
+LOG=$0.log
+
+# the exit code from curl is useless for Not Modified
+# both return OK 0
+# missing file does return non zero
+# so resort to grep
+#
+# nb every year the previous year remains un-modified
+# you would error after 5 weeks
+#
+# maybe libcurl or tcl-php-script node?
+
+if curl \
+	--remote-name \
+	--remote-time \
+	--time-cond $DATED \
+	-v \
+	--fail \
+	--fail-early \
+	"$URL" \
+	--output "$BASENAME" \
+ 2>&1 | tee $LOG | grep Not.Modified
+then
+	:
+	exit 1
+else
+	ls -l $BASENAME $DATED
+	touch -r $BASENAME $DATED
+	echo Downloaded
+	exit 0
+fi
+
+# unreached
+exit
+	
+# set -x
+# echo exit $?
+# OK but # [ -f $BASENAME ] && touch -r $BASENAME $DATED
+# [ -f $BASENAME ] && touch -r $BASENAME $DATED
+# PIOMAS.vol.daily.1979.2018.Current.v2.1.dat.gz
