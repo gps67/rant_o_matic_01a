@@ -47,6 +47,12 @@ BEGIN {
 	A365=365*4
 	A365=365*2
 	A365=365*1
+	A365=365*4
+	A365=365*10
+	A365=365*6
+	A365=365*4
+	A365=365*5 # looks like a step down, then exponential decay to V2
+	A365=365*1 # looks like spraying started 2012
 
 	F365=1.0*A365
 
@@ -285,6 +291,10 @@ function line_in( year, year_frac, day, vol ) {
 	year_vol_avg1_sum += vol - vol_old
 	if( data_day_avg ) {
 		A365_half = F365/(365.0*2.0) 
+# // A365_half // WHAT IS THIS NONSENSE // why not F365 / 2
+# // A units are units of 1 year, x-axis is in units of years not days
+# // measurments are daily tho
+// data_day_pos is where the mid-ends are
 		year_frac3 = sprintf( fmt_3, (year_frac - A365_half ))
 		L_day_1 = year_frac3 " " (year_vol_avg1_sum/F365 + 8.0)
 		L_day_2 = year_frac3 " " (year_vol_avg1_sum/F365)

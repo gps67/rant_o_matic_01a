@@ -1,0 +1,126 @@
+# list [ URL]
+URL=http://psc.apl.uw.edu/wordpress/wp-content/uploads/schweiger/ice_volume/PIOMAS.vol.daily.1979.2018.Current.v2.1.dat.gz
+URL=http://psc.apl.uw.edu/wordpress/wp-content/uploads/schweiger/ice_volume/PIOMAS.vol.daily.1979.2019.Current.v2.1.dat.gz
+
+# pick = URL
+# MATCH pick URL # ...
+# MATCH pick URL ... # SYNTAX DIALECT {
+#	rewrite IN { pick # url ]
+#	rewrite OUT { picl url } 
+#	CMNT // masks # 
+
+# MATCH pick URL # CMNT // PICK // GUI list is above, pick { value }, pick = lookup{ TEXT }
+# MATCH pick URL # CMNT dialect of { pick = URL ] dialect suggests { pick URL }
+# MATCH URL # PARAMAETER # VARIABLE shell_var
+# MATCH URL # VARIABLE in this shell script 
+
+# VARIABLE URL
+
+URL=http://psc.apl.uw.edu/wordpress/wp-content/uploads/schweiger/ice_volume/PIOMAS.vol.daily.1979.2019.Current.v2.1.dat.gz
+
+BASENAME=`basename $URL`
+
+# VARIABLE DATED_file_mtime
+#
+#	token DATE = DATED_file_mtime = PIOMAS_dated # INODE VFS DATE_OF_A_FILE_mtime Filename
+#	token DATED = PIOMAS_dated # INODE VFS DATE_OF_A_FILE_mtime Filename
+#	token VALUE "PIOMAS_dated" # %s from data source # filtered eg SP_X_SP
+#	filters might be
+#		SP HERE SP
+#		   HERE
+#		   	Does not include the SP's
+#			It often is a SUBLEX Name
+#			# SUBLEX
+#			#  Multi-Part-Word
+#			#   LIST
+#			#    Word
+#
+#				STR0 Name;
+
+# META #
+#
+# Name
+#
+#		Does Not Contain "-" 
+#		May Contain "_"
+#		= added code rules + concepts Cap1 CamalCase Dash Abbr
+	
+
+# DATED_file_mtime=$BASENAME
+DATED_file_mtime=PIOMAS_dated
+
+
+date_r()
+{
+	echo >&2 "# date -r $* # `date -r $@` " # mtime
+	# atime # unknown -flag || flag( "atimea, "{ ref_time = file.atime.get() }" 
+	# date -r "$@"
+}
+
+
+# date_r $DATED_file_mtime
+ LOG=$0.log
+ # date | tee $LOG 
+ touch $LOG # wake up nfs disk
+
+# the exit code from curl is useless for Not Modified
+# both return OK 0
+# missing file does return non zero
+# so resort to grep
+#
+# nb every year the previous year remains un-modified
+# you would error after 5 weeks
+#
+# maybe libcurl or tcl-php-script node?
+
+if type curl
+then
+	:
+else
+	exit 1
+fi
+
+echo "# URL # $URL"
+date_r $DATED_file_mtime 
+echo
+if curl \
+	--remote-name \
+	--remote-time \
+	--time-cond $DATED_file_mtime \
+	-v \
+	--fail \
+	--fail-early \
+	"$URL" \
+ 2>&1 | tee $LOG | grep Not.Modified
+then
+	:
+	date_r $DATED_file_mtime
+	exit 1
+else
+	touch -r $BASENAME $DATED_file_mtime
+	ls -l $BASENAME $DATED_file_mtime
+	cat $LOG
+	echo Maybe Downloaded
+	date_r $DATED_file_mtime
+	exit 0
+fi
+
+# unreached
+exit
+	
+# set -x
+# echo exit $?
+# OK but # [ -f $BASENAME ] && touch -r $BASENAME $DATED_file_mtime
+# [ -f $BASENAME ] && touch -r $BASENAME $DATED_file_mtime
+# PIOMAS.vol.daily.1979.2018.Current.v2.1.dat.gz
+
+exit
+################
+# ./PIOMAS_fetch
+
+# curl is /usr/bin/curl
+# URL # http://psc.apl.uw.edu/wordpress/wp-content/uploads/schweiger/ice_volume/PIOMAS.vol.daily.1979.2019.Current.v2.1.dat.gz
+# date -r PIOMAS_dated # Sun  4 Aug 18:28:58 BST 2019 
+
+< HTTP/1.1 304 Not Modified
+# date -r PIOMAS_dated # Sun  4 Aug 18:28:58 BST 2019
